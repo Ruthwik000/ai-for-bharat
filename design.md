@@ -1,8 +1,8 @@
-# ET Connect - Design Document
+# ImapactFlow - Design Document
 
 ## Project Overview
 
-**Project Name:** ET Connect  
+**Project Name:** ImapactFlow  
 **Platform:** Mobile-first Progressive Web Application  
 **Design Philosophy:** Clean, trust-focused, number-driven, mobile-first  
 **Target:** 450M+ Indian news readers  
@@ -93,6 +93,7 @@
 ### Data Flow Architecture
 
 **1. User Authentication Flow**
+
 ```
 User → React App → API Gateway → Lambda Authorizer → Cognito
                                       ↓
@@ -102,6 +103,7 @@ User → React App → API Gateway → Lambda Authorizer → Cognito
 ```
 
 **2. Personalized News Feed Flow**
+
 ```
 User Request → API Gateway → Lambda (PersonalizedFeed)
                                       ↓
@@ -115,6 +117,7 @@ User Request → API Gateway → Lambda (PersonalizedFeed)
 ```
 
 **3. Impact Analysis Flow**
+
 ```
 User Clicks "View Impact" → API Gateway → Lambda (ImpactAnalysis)
                                               ↓
@@ -134,6 +137,7 @@ User Clicks "View Impact" → API Gateway → Lambda (ImpactAnalysis)
 ```
 
 **4. Chatbot Conversation Flow**
+
 ```
 User Message → API Gateway → Lambda (Chatbot)
                                   ↓
@@ -157,30 +161,35 @@ User Message → API Gateway → Lambda (Chatbot)
 ## Design Principles
 
 ### 1. Mobile-First
+
 - Primary viewport: 320px - 428px (mobile devices)
 - Touch-optimized interactions
 - Thumb-friendly navigation zones
 - Responsive scaling for tablet (768px+) and desktop (1280px+)
 
 ### 2. Trust & Transparency
+
 - Clear data presentation with source attribution
 - Confidence scores visible on all AI-generated content
 - No sensationalism—calm, informational tone
 - Professional, credible visual language
 
 ### 3. Number-Driven
+
 - Specific numbers over vague statements
 - "₹2,800 EMI increase" not "rates increased"
 - Impact scores (0-10) prominently displayed
 - Financial projections with timelines
 
 ### 4. Instant Gratification
+
 - Impact visible in < 2 seconds
 - No loading spinners for critical content
 - Progressive disclosure (summary → details)
 - Smooth, minimal animations (60fps)
 
 ### 5. Actionable Design
+
 - Clear CTAs for next steps
 - Action recommendations prominently displayed
 - Easy access to "Wanna Know More?" chatbot
@@ -191,33 +200,36 @@ User Message → API Gateway → Lambda (Chatbot)
 ## Color System
 
 ### Primary Colors
+
 ```css
---primary: #1E3A8A (Deep Blue) - Trust, professionalism
---primary-light: #3B82F6 (Blue) - Interactive elements
---primary-dark: #1E40AF (Dark Blue) - Headers, emphasis
+--primary:
+  #1e3a8a (Deep Blue) - Trust,
+  professionalism --primary-light: #3b82f6 (Blue) - Interactive elements
+    --primary-dark: #1e40af (Dark Blue) - Headers,
+  emphasis;
 ```
 
 ### Impact Score Colors
+
 ```css
---negative: #EF4444 (Red) - High Impact (8-10)
---warning: #F59E0B (Amber) - Medium Impact (4-7)
---positive: #10B981 (Green) - Low Impact (0-3)
+--negative: #ef4444 (Red) - High Impact (8-10) --warning: #f59e0b (Amber) -
+  Medium Impact (4-7) --positive: #10b981 (Green) - Low Impact (0-3);
 ```
 
 ### Neutral Colors
+
 ```css
---neutral-950: #0A0A0A (Background - dark mode)
---neutral-900: #171717 (Cards - dark mode)
---neutral-100: #F5F5F5 (Background - light mode)
---white: #FFFFFF (Cards - light mode)
---secondary: #6B7280 (Secondary text)
+--neutral-950: #0a0a0a (Background - dark mode) --neutral-900: #171717
+  (Cards - dark mode) --neutral-100: #f5f5f5 (Background - light mode)
+  --white: #ffffff (Cards - light mode) --secondary: #6b7280 (Secondary text);
 ```
 
 ### Semantic Colors
+
 ```css
---success: #10B981 (Green) - Positive actions
---error: #EF4444 (Red) - Errors, warnings
---info: #3B82F6 (Blue) - Information
+--success:
+  #10b981 (Green) - Positive actions --error: #ef4444 (Red) - Errors,
+  warnings --info: #3b82f6 (Blue) - Information;
 ```
 
 ---
@@ -225,31 +237,31 @@ User Message → API Gateway → Lambda (Chatbot)
 ## Typography
 
 ### Font Families
+
 ```css
---font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
---font-headline: 'Merriweather', Georgia, serif (for news headlines)
---font-mono: 'JetBrains Mono', 'Courier New', monospace (for numbers)
+--font-primary:
+  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  sans-serif --font-headline: "Merriweather", Georgia,
+  serif (for news headlines) --font-mono: "JetBrains Mono", "Courier New",
+  monospace (for numbers);
 ```
 
 ### Font Scale
+
 ```css
---text-xs: 0.75rem (12px) - Timestamps, labels
---text-sm: 0.875rem (14px) - Body text, descriptions
---text-base: 1rem (16px) - Primary content
---text-lg: 1.125rem (18px) - Subheadings
---text-xl: 1.25rem (20px) - Section titles
---text-2xl: 1.5rem (24px) - Page titles
---text-3xl: 1.875rem (30px) - Hero headlines
---text-4xl: 2.25rem (36px) - Landing page
+--text-xs:
+  0.75rem (12px) - Timestamps, labels --text-sm: 0.875rem (14px) - Body text,
+  descriptions --text-base: 1rem (16px) - Primary content --text-lg: 1.125rem
+    (18px) - Subheadings --text-xl: 1.25rem (20px) - Section titles
+    --text-2xl: 1.5rem (24px) - Page titles --text-3xl: 1.875rem (30px) - Hero
+    headlines --text-4xl: 2.25rem (36px) - Landing page;
 ```
 
 ### Font Weights
+
 ```css
---font-light: 300
---font-normal: 400
---font-medium: 500
---font-semibold: 600
---font-bold: 700
+--font-light: 300 --font-normal: 400 --font-medium: 500 --font-semibold: 600
+  --font-bold: 700;
 ```
 
 ---
@@ -259,12 +271,14 @@ User Message → API Gateway → Lambda (Chatbot)
 ### 1. News Card (Home Feed)
 
 **Dimensions:**
+
 - Width: 100% (with 16px padding)
 - Height: Auto (min 280px)
 - Border radius: 12px
 - Shadow: 0 2px 8px rgba(0,0,0,0.1)
 
 **Structure:**
+
 ```
 ┌─────────────────────────────────┐
 │  [News Image - 200px height]    │
@@ -285,6 +299,7 @@ User Message → API Gateway → Lambda (Chatbot)
 ```
 
 **Impact Score Badge:**
+
 - Position: Top-right corner of image
 - Size: 60px × 32px
 - Background: Semi-transparent with backdrop blur
@@ -292,6 +307,7 @@ User Message → API Gateway → Lambda (Chatbot)
 - Color: Dynamic based on score (Red/Yellow/Green)
 
 **Interactions:**
+
 - Tap card → Navigate to full article
 - Tap "View Impact" → Show Impact Report
 - Tap badge → Show Impact Report
@@ -303,6 +319,7 @@ User Message → API Gateway → Lambda (Chatbot)
 ### 2. Personal Impact Report (Modal/Page)
 
 **Layout:**
+
 ```
 ┌─────────────────────────────────┐
 │ [Close Button]                   │
@@ -337,6 +354,7 @@ User Message → API Gateway → Lambda (Chatbot)
 ```
 
 **Visual Elements:**
+
 - Relevance Score: Large, bold number with color coding
 - Impact sections: Clear hierarchy with icons
 - Action items: Checkboxes (visual only) for clarity
@@ -344,6 +362,7 @@ User Message → API Gateway → Lambda (Chatbot)
 - CTA buttons: Primary (blue) and secondary (outline)
 
 **Animations:**
+
 - Slide up from bottom (mobile)
 - Fade in with scale (desktop)
 - Smooth transitions (300ms ease-out)
@@ -353,9 +372,10 @@ User Message → API Gateway → Lambda (Chatbot)
 ### 3. "Wanna Know More?" Chatbot Interface
 
 **Layout:**
+
 ```
 ┌─────────────────────────────────┐
-│ [← Back] ET Connect AI           │
+│ [← Back] ImapactFlow AI           │
 ├─────────────────────────────────┤
 │ ┌─────────────────────────┐     │
 │ │ Context Card (Collapsible)│    │
@@ -384,6 +404,7 @@ User Message → API Gateway → Lambda (Chatbot)
 ```
 
 **Design Details:**
+
 - **Context Card:**
   - Collapsible (tap to expand/collapse)
   - Shows article title + impact score
@@ -417,6 +438,7 @@ User Message → API Gateway → Lambda (Chatbot)
   - Send button: Primary blue
 
 **Interactions:**
+
 - Tap suggested question → Auto-send
 - Type and tap send → Submit message
 - Scroll to load history
@@ -427,6 +449,7 @@ User Message → API Gateway → Lambda (Chatbot)
 ### 4. Bottom Navigation (Mobile)
 
 **Layout:**
+
 ```
 ┌─────────────────────────────────┐
 │ [Home] [Explore] [Ask AI] [Profile] │
@@ -436,6 +459,7 @@ User Message → API Gateway → Lambda (Chatbot)
 ```
 
 **Specifications:**
+
 - Height: 64px
 - Background: White with top border
 - Icons: 24px × 24px
@@ -445,6 +469,7 @@ User Message → API Gateway → Lambda (Chatbot)
 - Safe area padding for iOS notch
 
 **Navigation Items:**
+
 1. **Home:** House icon - Personalized feed
 2. **Explore:** Compass icon - Full-screen browsing
 3. **Ask AI:** Message circle icon - Chatbot
@@ -455,13 +480,15 @@ User Message → API Gateway → Lambda (Chatbot)
 ### 5. Top Navigation Bar
 
 **Layout:**
+
 ```
 ┌─────────────────────────────────┐
-│ [Logo] ET Connect    [🔔] [⚙️]  │
+│ [Logo] ImapactFlow    [🔔] [⚙️]  │
 └─────────────────────────────────┘
 ```
 
 **Specifications:**
+
 - Height: 56px
 - Background: White (light mode) / #171717 (dark mode)
 - Logo: 32px height
@@ -470,6 +497,7 @@ User Message → API Gateway → Lambda (Chatbot)
 - Shadow: 0 1px 3px rgba(0,0,0,0.1)
 
 **Elements:**
+
 - Logo + App name (left)
 - Notification bell (right, with badge for unread)
 - Settings gear (right)
@@ -479,11 +507,12 @@ User Message → API Gateway → Lambda (Chatbot)
 ### 6. Landing Page Hero
 
 **Layout:**
+
 ```
 ┌─────────────────────────────────┐
 │ [Background Image with overlay]  │
 │                                  │
-│     ET Connect Logo              │
+│     ImapactFlow Logo              │
 │                                  │
 │   News you understand,           │
 │   not just consume.              │
@@ -498,6 +527,7 @@ User Message → API Gateway → Lambda (Chatbot)
 ```
 
 **Design Details:**
+
 - Full viewport height (100vh)
 - Background: Dark gradient with image overlay
 - Text: White, centered
@@ -578,6 +608,7 @@ Get Personalized Recommendations
 ## Responsive Design Breakpoints
 
 ### Mobile (Primary)
+
 - **320px - 428px:** Optimized for iPhone SE to iPhone 14 Pro Max
 - Single column layout
 - Bottom navigation
@@ -585,12 +616,14 @@ Get Personalized Recommendations
 - Touch-optimized (48px minimum tap targets)
 
 ### Tablet
+
 - **768px - 1024px:** iPad, Android tablets
 - Two-column layout for news feed
 - Side navigation (optional)
 - Larger cards with more content visible
 
 ### Desktop
+
 - **1280px+:** Desktop browsers
 - Three-column layout
 - Sidebar navigation
@@ -602,23 +635,27 @@ Get Personalized Recommendations
 ## Accessibility (WCAG 2.1 Level AA)
 
 ### Color Contrast
+
 - Text on background: Minimum 4.5:1 ratio
 - Large text (18px+): Minimum 3:1 ratio
 - Interactive elements: Clear focus indicators
 
 ### Keyboard Navigation
+
 - Tab order follows visual flow
 - Enter/Space to activate buttons
 - Escape to close modals
 - Arrow keys for carousel navigation
 
 ### Screen Reader Support
+
 - Semantic HTML (header, nav, main, article)
 - ARIA labels for icons
 - Alt text for images
 - Live regions for dynamic content
 
 ### Touch Targets
+
 - Minimum 48px × 48px for all interactive elements
 - Adequate spacing between targets (8px minimum)
 
@@ -627,6 +664,7 @@ Get Personalized Recommendations
 ## Animation & Transitions
 
 ### Principles
+
 - **Purposeful:** Animations guide attention, don't distract
 - **Fast:** 200-300ms for most transitions
 - **Smooth:** 60fps, use transform and opacity
@@ -635,6 +673,7 @@ Get Personalized Recommendations
 ### Common Animations
 
 **Page Transitions:**
+
 ```css
 .page-enter {
   opacity: 0;
@@ -648,21 +687,30 @@ Get Personalized Recommendations
 ```
 
 **Card Hover (Desktop):**
+
 ```css
 .card {
-  transition: transform 200ms ease, box-shadow 200ms ease;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
 }
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 ```
 
 **Impact Score Badge Pulse:**
+
 ```css
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
 .impact-badge-high {
   animation: pulse 2s ease-in-out infinite;
@@ -670,6 +718,7 @@ Get Personalized Recommendations
 ```
 
 **Chatbot Message Appear:**
+
 ```css
 .message-enter {
   opacity: 0;
@@ -687,18 +736,21 @@ Get Personalized Recommendations
 ## Loading States
 
 ### Skeleton Screens
+
 - Use for news feed loading
 - Gray placeholders matching card layout
 - Subtle shimmer animation
 - Replace with actual content when loaded
 
 ### Spinners
+
 - Use for Impact Report generation (< 2 seconds)
 - Primary blue color
 - 32px size
 - Centered in container
 
 ### Progress Indicators
+
 - Use for multi-step processes (profile survey)
 - Show current step and total steps
 - Visual progress bar
@@ -708,6 +760,7 @@ Get Personalized Recommendations
 ## Error States
 
 ### Network Error
+
 ```
 ┌─────────────────────────────────┐
 │     [Icon: Wifi Off]             │
@@ -720,6 +773,7 @@ Get Personalized Recommendations
 ```
 
 ### No Results
+
 ```
 ┌─────────────────────────────────┐
 │     [Icon: Search]               │
@@ -732,6 +786,7 @@ Get Personalized Recommendations
 ```
 
 ### API Error
+
 ```
 ┌─────────────────────────────────┐
 │     [Icon: Alert Triangle]       │
@@ -750,6 +805,7 @@ Get Personalized Recommendations
 ### Buttons
 
 **Primary Button:**
+
 ```css
 background: #3B82F6
 color: white
@@ -760,6 +816,7 @@ hover: background #2563EB
 ```
 
 **Secondary Button:**
+
 ```css
 background: transparent
 color: #3B82F6
@@ -771,6 +828,7 @@ hover: background #EFF6FF
 ```
 
 **Text Button:**
+
 ```css
 background: transparent
 color: #3B82F6
@@ -782,6 +840,7 @@ hover: text-decoration underline
 ### Input Fields
 
 **Text Input:**
+
 ```css
 border: 1px solid #E5E7EB
 border-radius: 8px
@@ -791,6 +850,7 @@ focus: border-color #3B82F6, outline 2px #3B82F6
 ```
 
 **Dropdown:**
+
 ```css
 border: 1px solid #E5E7EB
 border-radius: 8px
@@ -802,6 +862,7 @@ icon: chevron-down
 ### Badges
 
 **Impact Score Badge:**
+
 ```css
 High (8-10): background #FEE2E2, color #991B1B
 Medium (4-7): background #FEF3C7, color #92400E
@@ -817,21 +878,16 @@ font-size: 12px
 ## Dark Mode Support
 
 ### Color Adjustments
+
 ```css
 /* Light Mode (Default) */
---bg-primary: #FFFFFF
---bg-secondary: #F9FAFB
---text-primary: #111827
---text-secondary: #6B7280
-
-/* Dark Mode */
---bg-primary: #0A0A0A
---bg-secondary: #171717
---text-primary: #F9FAFB
---text-secondary: #9CA3AF
+--bg-primary: #ffffff --bg-secondary: #f9fafb --text-primary: #111827
+  --text-secondary: #6b7280 /* Dark Mode */ --bg-primary: #0a0a0a
+  --bg-secondary: #171717 --text-primary: #f9fafb --text-secondary: #9ca3af;
 ```
 
 ### Implementation
+
 - Use CSS custom properties
 - Respect system preference (prefers-color-scheme)
 - Toggle in settings
@@ -842,17 +898,20 @@ font-size: 12px
 ## Performance Optimization
 
 ### Image Optimization
+
 - WebP format with JPEG fallback
 - Lazy loading for below-fold images
 - Responsive images (srcset)
 - Blur-up placeholder technique
 
 ### Code Splitting
+
 - Route-based code splitting
 - Lazy load chatbot component
 - Defer non-critical JavaScript
 
 ### Caching Strategy
+
 - Service Worker for offline support
 - Cache news articles (24 hours)
 - Cache user profile locally
@@ -868,33 +927,33 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#1E3A8A',
-          light: '#3B82F6',
-          dark: '#1E40AF',
+          DEFAULT: "#1E3A8A",
+          light: "#3B82F6",
+          dark: "#1E40AF",
         },
-        negative: '#EF4444',
-        warning: '#F59E0B',
-        positive: '#10B981',
+        negative: "#EF4444",
+        warning: "#F59E0B",
+        positive: "#10B981",
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        serif: ['Merriweather', 'serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ["Inter", "sans-serif"],
+        serif: ["Merriweather", "serif"],
+        mono: ["JetBrains Mono", "monospace"],
       },
       spacing: {
-        '18': '4.5rem',
-        '88': '22rem',
+        18: "4.5rem",
+        88: "22rem",
       },
       borderRadius: {
-        '4xl': '2rem',
+        "4xl": "2rem",
       },
       boxShadow: {
-        'card': '0 2px 8px rgba(0,0,0,0.1)',
-        'card-hover': '0 8px 16px rgba(0,0,0,0.15)',
+        card: "0 2px 8px rgba(0,0,0,0.1)",
+        "card-hover": "0 8px 16px rgba(0,0,0,0.15)",
       },
     },
   },
-}
+};
 ```
 
 ---
@@ -902,6 +961,7 @@ module.exports = {
 ## Figma Design File Structure
 
 ### Pages
+
 1. **Cover & Overview**
 2. **Design System** (Colors, Typography, Components)
 3. **Mobile Screens** (320px - 428px)
@@ -911,6 +971,7 @@ module.exports = {
 7. **Prototypes**
 
 ### Artboards (Mobile)
+
 - Landing Page
 - Sign Up / Login
 - Profile Survey (Multi-step)
@@ -929,18 +990,21 @@ module.exports = {
 ## Development Handoff
 
 ### Assets Export
+
 - Icons: SVG format
 - Images: WebP + JPEG fallback
 - Logos: SVG with PNG fallback
 - Illustrations: SVG
 
 ### Specifications
+
 - Spacing: 4px, 8px, 12px, 16px, 24px, 32px
 - Border radius: 8px, 12px, 16px
 - Shadows: Defined in design tokens
 - Animations: Duration and easing specified
 
 ### Component Library
+
 - Storybook for component documentation
 - Props and variants documented
 - Accessibility notes included
@@ -989,30 +1053,31 @@ module.exports = {
 ### Backend Lambda Functions Design
 
 **Function: PersonalizedNewsFeed**
+
 ```python
 # Lambda Handler
 def lambda_handler(event, context):
     # Extract user ID from JWT token
     user_id = extract_user_id(event['headers']['Authorization'])
-    
+
     # Get user profile from DynamoDB
     user_profile = dynamodb.get_item(
         TableName='Users',
         Key={'userId': user_id}
     )
-    
+
     # Query news articles from S3
     articles = s3.list_objects_v2(
         Bucket='et-connect-news',
         Prefix='articles/'
     )
-    
+
     # Rank articles by relevance
     ranked_articles = rank_by_interests(
-        articles, 
+        articles,
         user_profile['interests']
     )
-    
+
     return {
         'statusCode': 200,
         'body': json.dumps(ranked_articles)
@@ -1020,28 +1085,29 @@ def lambda_handler(event, context):
 ```
 
 **Function: ImpactAnalysis**
+
 ```python
 # Lambda Handler with Bedrock
 def lambda_handler(event, context):
     article_id = event['pathParameters']['articleId']
     user_id = extract_user_id(event['headers']['Authorization'])
-    
+
     # Get article and user profile
     article = get_article_from_s3(article_id)
     user_profile = get_user_profile(user_id)
-    
+
     # Prepare prompt for Bedrock
     prompt = f"""
     Analyze the impact of this news article on the user:
-    
+
     Article: {article['headline']}
     Content: {article['content']}
-    
+
     User Profile:
     - Age: {user_profile['age']}
     - Income: {user_profile['income']}
     - Goals: {', '.join(user_profile['goals'])}
-    
+
     Provide:
     1. Impact Score (0-10)
     2. Short-term impact (0-6 months)
@@ -1049,7 +1115,7 @@ def lambda_handler(event, context):
     4. Specific action recommendations
     5. Confidence score
     """
-    
+
     # Call Bedrock with RAG
     response = bedrock_runtime.invoke_model(
         modelId='anthropic.claude-3-sonnet-20240229-v1:0',
@@ -1059,13 +1125,13 @@ def lambda_handler(event, context):
             'temperature': 0.7
         })
     )
-    
+
     # Parse and structure response
     impact_report = parse_bedrock_response(response)
-    
+
     # Save to DynamoDB
     save_impact_report(user_id, article_id, impact_report)
-    
+
     return {
         'statusCode': 200,
         'body': json.dumps(impact_report)
@@ -1075,6 +1141,7 @@ def lambda_handler(event, context):
 ### DynamoDB Table Design
 
 **Users Table Schema**
+
 ```
 Table Name: et-connect-users
 Partition Key: userId (String)
@@ -1105,6 +1172,7 @@ Capacity: On-Demand
 ```
 
 **NewsArticles Table Schema**
+
 ```
 Table Name: et-connect-news-metadata
 Partition Key: articleId (String)
@@ -1183,42 +1251,42 @@ Endpoints:
     POST /signup:
       Integration: Lambda (UserManagement)
       Auth: None
-      
+
     POST /login:
       Integration: Lambda (UserManagement)
       Auth: None
-      
+
   /news:
     GET /personalized:
       Integration: Lambda (PersonalizedFeed)
       Auth: Cognito Authorizer
       Query Params: limit, offset
-      
+
     GET /{articleId}:
       Integration: Lambda (ArticleRetrieval)
       Auth: Cognito Authorizer
-      
+
   /impact:
     POST /analyze:
       Integration: Lambda (ImpactAnalysis)
       Auth: Cognito Authorizer
       Body: { articleId, userId }
-      
+
   /chat:
     POST /message:
       Integration: Lambda (Chatbot)
       Auth: Cognito Authorizer
       Body: { sessionId, message, articleId }
-      
+
   /user:
     GET /profile:
       Integration: Lambda (UserManagement)
       Auth: Cognito Authorizer
-      
+
     PUT /profile:
       Integration: Lambda (UserManagement)
       Auth: Cognito Authorizer
-      
+
     GET /saved-news:
       Integration: Lambda (SavedNews)
       Auth: Cognito Authorizer
@@ -1234,9 +1302,10 @@ Settings:
 ### Monitoring Dashboard Design
 
 **CloudWatch Dashboard Layout**
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                  ET Connect Monitoring                       │
+│                  ImapactFlow Monitoring                       │
 ├─────────────────────────────────────────────────────────────┤
 │                                                               │
 │  API Gateway Metrics                                         │
@@ -1275,6 +1344,7 @@ Settings:
 ## Implementation Checklist
 
 ### Phase 1: Infrastructure Setup
+
 - [ ] Create AWS account and configure IAM roles
 - [ ] Set up AWS CDK project (Python/TypeScript)
 - [ ] Create DynamoDB tables (Users, NewsArticles, etc.)
@@ -1286,6 +1356,7 @@ Settings:
 - [ ] Set up CloudWatch dashboards and alarms
 
 ### Phase 2: Frontend Development
+
 - [ ] Initialize React project with Vite
 - [ ] Set up Tailwind CSS configuration
 - [ ] Implement authentication flow (Cognito)
@@ -1297,6 +1368,7 @@ Settings:
 - [ ] Deploy to AWS Amplify
 
 ### Phase 3: Backend Development
+
 - [ ] Implement news aggregation Lambda
 - [ ] Implement personalized feed Lambda
 - [ ] Implement impact analysis Lambda with Bedrock
@@ -1307,6 +1379,7 @@ Settings:
 - [ ] Implement error handling and logging
 
 ### Phase 4: Testing & Optimization
+
 - [ ] Unit tests for Lambda functions
 - [ ] Integration tests for API endpoints
 - [ ] Load testing with Artillery/JMeter
@@ -1316,6 +1389,7 @@ Settings:
 - [ ] User acceptance testing (UAT)
 
 ### Phase 5: Launch
+
 - [ ] Production deployment
 - [ ] DNS configuration
 - [ ] SSL certificate setup

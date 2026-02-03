@@ -1,11 +1,10 @@
-# ET Connect - Requirements Document
+# ImapactFlow - Requirements Document
 
 ## Project Overview
 
-**Project Name:** ET Connect  
+**Project Name:** Impact flow 
 **Program:** AI for Bharat  
 **Platform:** Mobile-first Progressive Web Application  
-**Partnership:** Economic Times (30M+ user base)
 
 ## Vision
 
